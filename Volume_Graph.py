@@ -1,14 +1,14 @@
 
-# https://colab.research.google.com/drive/1-Ilo-MFRbiCxiQEgAIcaU8TjvpHmMx-J#scrollTo=c0Mekc6Jw3ir
-
-import librosa, winsound
+import librosa, winsound, json
 import matplotlib.pylab as plt
 
-song = input('Enter song name: ')
+song = input('\nEnter song name: ')
 scale = 5000
 
 def save_plot(filename):
-    y, sr = librosa.load(filename)        
+    y, sr = librosa.load(filename)
+    plt.figure(figsize=(20, 10))
+    plt.title(song)
     plt.xlabel('time')
     plt.ylabel('amplitude')
     plt.plot(y)
@@ -16,18 +16,23 @@ def save_plot(filename):
     return y, sr
 
 y, sr = save_plot(f'input/{song}.mp3')
+dictionary = {}
 
-with open(f'output/{song}.txt', 'w') as f:
-    for i, j in enumerate(y[::sr]):
-        try:
-            duration = 1000 # 1 sec
-            frequency = scale + int(scale*j)
+for i, j in enumerate(y[::sr]):
+    try:
+        duration = 1000 # 1 sec
+        frequency = scale + int(scale*j)
 
-            winsound.Beep(frequency, duration)
-        except:
-            pass
-
+        winsound.Beep(frequency, duration)
         print(i, 'sec. ', int(scale*(1 + j)), 'Hz.')
-        f.write(f'{j}, ')
+
+    except:
+        pass
+
+    dictionary.update({i: scale*(1 + j)})
+json_object = json.dumps(dictionary, indent=4)
+ 
+with open(f'output/{song}.json', "w") as outfile:
+    outfile.write(json_object)
 
 print('\n', len(y), '/', sr, '=', len(y)/sr, 'seconds')
