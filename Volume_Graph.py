@@ -4,7 +4,7 @@
 import librosa, winsound
 import matplotlib.pylab as plt
 
-song = input('Enetr song name: ')
+song = input('Enter song name: ')
 scale = 5000
 
 def save_plot(filename):
@@ -27,7 +27,7 @@ with open(f'output/{song}.txt', 'w') as f:
         except:
             pass
 
-        print(i, 'sec. ', scale*(1 + j), 'Hz.')
+        print(i, 'sec. ', int(scale*(1 + j)), 'Hz.')
         f.write(f'{j}, ')
 
 print('\n', len(y), '/', sr, '=', len(y)/sr, 'seconds')
