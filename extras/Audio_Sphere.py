@@ -5,11 +5,15 @@ import time
 import librosa
 import os
 
-filename = 'input/Dior.mp3'
+song = input('\nEnter song name: ')
+filename = f'input/{song}.mp3'
 # https://youtu.be/S0nOYs0PRak
 
 y, sr = librosa.load(filename)
+y = y[::sr]
 t1 = int(time.time())
+
+scale = 10**4
 i=0
 
 app = Ursina()
@@ -25,7 +29,7 @@ opt_texture = [
 ]
 
 def update():
-    global speed, deatils, cube, c, i
+    global speed, deatils, cube, c, i, y
     t2 = int(time.time())
     cube.texture = opt_texture[t2%len(opt_texture)]
     # cube.texture = opt_texture[5]
@@ -66,14 +70,15 @@ Press and Hold `A` or `D` key ...
 '''
 
     try:
-        print(i, sr, y[i], t2-t1)
-        cube.scale += (y[i],y[i],y[i])
-        i+=int(sr/45)
+        y[i] += scale*y[i]
+        print(i, y[i], t2-t1)
+        cube.scale = (y[i], y[i], y[i])
+        i+=1
     except:
         pass
 
-    if cube.scale.x > 10:
-        cube.scale = (5,5,5)
+    # if cube.scale.x > 10:
+    #     cube.scale = (5,5,5)
 
     if held_keys['w']:
         cube.scale += (1,1,1)
