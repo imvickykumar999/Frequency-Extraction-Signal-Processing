@@ -36,4 +36,4 @@ with open(f'output/{song}.json', "w") as outfile:
     outfile.write(json_object)
 
 print('\n', len(y), '/', sr, '=', len(y)/sr, 'seconds')
-# https://screenrec.com/share/AMPRWv3aB0
+# https://youtu.be/dJaGdm89HJ8
