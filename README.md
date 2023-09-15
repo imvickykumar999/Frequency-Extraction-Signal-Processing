@@ -1,6 +1,12 @@
 # Frequency-Extraction-Signal-Processing
 
-This Script is able to extract Frequency of the voice detected in an audio file (preferred in ".wav" filetype)
+    This Script is able to extract Frequency of the voice detected in an audio file (preferred in ".wav" filetype)
+
+<br>
+
+>![ss](https://github.com/imvickykumar999/Frequency-Extraction-Signal-Processing/blob/main/extras/Screenshot%202023-09-15%20162146.png?raw=true)
+
+<br>
 
 ```python
 import librosa, winsound
