@@ -4,19 +4,20 @@
 import librosa, winsound
 import matplotlib.pylab as plt
 
+song = input('Enetr song name: ')
+scale = 5000
+
 def save_plot(filename):
     y, sr = librosa.load(filename)        
     plt.xlabel('time')
     plt.ylabel('amplitude')
     plt.plot(y)
-    plt.savefig('test.png')
+    plt.savefig(f'output/{song}.png')
     return y, sr
 
-y, sr = save_plot('test.wav')
-# https://youtu.be/S0nOYs0PRak
+y, sr = save_plot(f'input/{song}.mp3')
 
-scale = 5000
-with open('test.txt', 'w') as f:
+with open(f'output/{song}.txt', 'w') as f:
     for i, j in enumerate(y[::sr]):
         try:
             duration = 1000 # 1 sec
@@ -26,12 +27,7 @@ with open('test.txt', 'w') as f:
         except:
             pass
 
-        print(i, scale*(1 + j))
+        print(i, 'sec. ', scale*(1 + j), 'Hz.')
         f.write(f'{j}, ')
 
-print(len(y), sr, len(y)/sr, 'seconds')
-# 80000 22050 3.6281179138321997 seconds
-# ValueError: frequency must be in 37 thru 32767
-
-# The variable sr contains the sampling rate of y , 
-# that is, the number of samples per second of audio.
+print('\n', len(y), '/', sr, '=', len(y)/sr, 'seconds')
