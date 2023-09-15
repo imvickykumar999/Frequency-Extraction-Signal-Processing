@@ -4,7 +4,7 @@
 
 <br>
 
->![ss](https://github.com/imvickykumar999/Frequency-Extraction-Signal-Processing/blob/main/extras/Screenshot 2023-09-15 171120.png?raw=true)
+>![ss](https://github.com/imvickykumar999/Frequency-Extraction-Signal-Processing/blob/main/extras/Screenshot%202023-09-15%20171120.png?raw=true)
 
 <br>
 
