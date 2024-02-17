@@ -4,7 +4,8 @@
 
 <br>
 
->![ss](https://github.com/imvickykumar999/Frequency-Extraction-Signal-Processing/blob/main/extras/Screenshot%202023-09-15%20171120.png?raw=true)
+![system sound](https://github.com/imvickykumar999/Frequency-Extraction-Signal-Processing/assets/50515418/73649166-23ae-44c6-9578-6e2584bbfd0f)
+![Saiyyan](https://github.com/imvickykumar999/Frequency-Extraction-Signal-Processing/assets/50515418/e0756cb4-1814-4c67-b425-9713111c4760)
 
 <br>
 
