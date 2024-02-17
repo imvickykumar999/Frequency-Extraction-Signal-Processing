@@ -1,4 +1,7 @@
 
+# pip install librosa
+# pip install matplotlib
+
 import librosa, winsound, json
 import matplotlib.pylab as plt
 
