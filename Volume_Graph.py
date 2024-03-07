@@ -4,8 +4,15 @@
 
 import librosa, winsound, json
 import matplotlib.pylab as plt
+import os
 
-song = input('\nEnter song name: ')
+try: os.mkdir('input')
+except: pass
+
+try: os.mkdir('output')
+except: pass
+
+song = input('\nEnter song name (no ext): ')
 scale = 5000
 
 def save_plot(filename):
@@ -26,7 +33,7 @@ for i, j in enumerate(y[::sr]):
         duration = 1000 # 1 sec
         frequency = scale + int(scale*j)
 
-        winsound.Beep(frequency, duration)
+        # winsound.Beep(frequency, duration)
         print(i, 'sec. ', int(scale*(1 + j)), 'Hz.')
 
     except:
